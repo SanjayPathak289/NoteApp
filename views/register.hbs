@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Register</title>
+</head>
+<body>
+
+    {{!-- {{> header user=`{{username}}`}} --}}
+    {{!-- {{renderPartial 'header' user=}} --}}
+    <hr>
+
+    <div id="register_div">
+
+        <div id="borderBtn">
+        <button id="registerBtn" class="btn">Register</button>
+        <button id="loginBtn" class="btn">Login</button>
+    </div>
+    <div id="formdiv">
+
+        <form action="/register" method="post" id="form_register" class="form">
+        
+           <span>
+                Username &nbsp; <input type="text" name="username" required>
+           </span>
+            <span>
+                Password &nbsp; <input type="password" name="password" required>
+            </span>
+            <span>
+                Confirm Password &nbsp; <input type="password" name="confirmpassword" required>
+            </span>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+
+
+        <form action="/login" method="post" id="form_login" class="form">
+        
+           <span>
+                Username &nbsp; <input type="text" name="username" required>
+           </span>
+            <span>
+                Password &nbsp; <input type="password" name="password" required>
+            </span>
+            
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+
+    </div>
+
+    </div>
+    
+    {{> footer}}
+</body>
+<script>
+    const register = document.getElementById("registerBtn");
+    const login = document.getElementById("loginBtn");
+    const form_register = document.getElementById("form_register");
+    const form_login = document.getElementById("form_login");
+
+    login.addEventListener("click",() => {
+        form_login.style.display = "flex";
+        form_register.style.display = "none";
+        register.style.boxShadow = "none";
+        login.style.boxShadow = "inset 0 0 0 1000px rgba(0,0,0,.2)";
+    })
+    register.addEventListener("click",() => {
+        form_register.style.display = "flex";
+        form_login.style.display = "none";
+        login.style.boxShadow = "none";
+        register.style.boxShadow = "inset 0 0 0 1000px rgba(0,0,0,.2)";
+    })
+</script>
+</html>

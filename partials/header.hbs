@@ -1,0 +1,26 @@
+<nav>
+        <div id="brandname">
+           <a href="/" style="text-decoration: none;">NOTE-APP</a>
+        </div>
+        <div id="login">
+
+
+
+            {{#if user}}
+
+                
+                        <button id="usera"> {{user}}</button>
+    
+                
+                    <span class="userbtn">
+                        <a href="/notes" style="text-decoration: none;">My Notes</a>
+                        <a href="/logout" style="text-decoration: none;" id="userlogout">Logout</a>
+
+                    </span>
+
+            {{else}}
+                <a href="/register" style="text-decoration: none;">Register / Login</a>
+            {{/if}}
+
+        </div>
+    </nav>

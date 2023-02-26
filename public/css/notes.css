@@ -1,0 +1,172 @@
+#userNotes{
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    /* height: 100%; */
+    flex-wrap: wrap;
+}
+#noteformdiv div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* #notedivmodal form{
+    justify-content: space-around !important;
+} */
+#noteformdiv div button , #modal_form div button{
+    border: 1.4px solid black;
+    cursor: pointer; 
+    font-size: 1.2rem;
+    padding: 0.3rem;
+    border-radius: 2px;
+}
+.noteDiv{
+    background-color: wheat;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 1rem;
+    font-size: 1.3rem;
+    margin-top: 2.5rem;
+    width: 20%;
+    overflow-wrap: break-word;
+}
+.noteDiv form input{
+    font-size: 1.2rem;
+    padding: 3px;
+    outline: none;
+    border: 1.4px solid black;
+}
+
+.noteDiv form,#notedivmodal form{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 20vh;
+}
+.hidden{
+    display: none !important;
+}
+#notedivmodal{
+    background-color: wheat;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 1rem;
+    font-size: 1.3rem;
+    /* margin-top: 2.5rem; */
+    width: 35%; 
+    height: 25vh;
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    animation: move 0.3s 1 ease;
+}
+@keyframes move {
+    0% {
+        top: 2%;
+    }
+    100%{
+        top: 44%;
+    }
+}
+#notedivmodal form input{
+    font-size: 1.2rem;
+    padding: 3px;
+    outline: none;
+    border: 1.4px solid black;
+}
+#notedivmodal form div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+#closemodal{
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    width: 1.3rem;
+    border-radius: 50%;
+    height: 1.3rem;
+    border: 0.5px solid black;
+    cursor: pointer;
+}
+.overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+}
+.noteDiv div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.img{
+    width: 2rem;
+}
+.updatebtn{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.tooltip{
+    position: relative;
+}
+.tooltipdelete:before{
+    content: "Delete";
+    background-color: red;
+    font-size: 1rem;
+    position: absolute;
+    top: 2rem;
+    /* display: none; */
+    opacity:0;
+    transition: .3s opacity;
+}
+.tooltipupdate:before{
+    content: "Update";
+    background-color: red;
+    font-size: 1rem;
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    /* display: none; */
+
+    /* animation: fade 1s 1 linear;
+     */
+    opacity:0;
+    transition: .4s opacity;   
+}
+
+
+.tooltip:hover:before{
+    display: flex;
+    opacity: 1;
+    /* animation: fade 1s 1 linear; */
+}
+/* @keyframes fade {
+    from{
+        display: none;
+    }
+    to{
+        display: flex;
+    }
+} */
+hr{
+    width: 100%;
+}

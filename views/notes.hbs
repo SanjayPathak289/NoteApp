@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/notes.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>My Notes</title>
+</head>
+<body>
+    {{> header}}
+    
+    <hr>
+    
+    <div id="userNotes">
+
+        {{#each notedata}}
+            <div class="noteDiv">
+                <span>
+                    Title - {{title}}
+                </span>
+                <hr>
+                <span>
+                    Note - {{data}}
+                </span>
+
+                <div>
+
+                    <span class="tooltip tooltipdelete">
+
+                    <a style="text-decoration: none; cursor:pointer;" href="/notes/{{_id}}">
+                        <img class="img" src="img/delete.png" alt="Delete">
+                    </a>
+                </span>
+                <span class="tooltip tooltipupdate">
+                    <button class="updatebtn" onclick="setid('{{id}}','{{title}}','{{data}}')">
+                        <img class="img" src="img/update.png" alt="Update">
+                    </button>
+                </span>
+
+                </div>
+
+                
+            </div>
+            
+        {{/each}}
+        
+
+
+        <div id="noteformdiv" class="noteDiv">
+            <form action="/notes" method="post">
+                <span>Title &nbsp; <input type="text" name="title"></span>
+                <span>Note &nbsp; <input type="text" name="note"></span>
+                <div>
+                  <button type="submit">Submit</button>
+
+                </div>
+            </form>
+
+        </div>
+
+        <section id="notedivmodal" class="hidden">
+                <form id="modal_form" method="post">
+                    <span>Title &nbsp; <input type="text" name="updatetitle" id="title_modal">    </span>
+                    <span>Note &nbsp; <input type="text" name="updatenote" id="note_modal"></span>
+                    <div>
+                         <button type="submit">Submit</button>
+
+                    </div>
+                </form>
+                
+                     <button id="closemodal">X</button>
+        </section>
+        <div class="overlay hidden"></div>
+
+    </div>
+    {{>footer}}
+</body>
+
+<script>
+        const noteDivModal = document.getElementById("notedivmodal");
+        const overlay = document.querySelector(".overlay");
+        const updatebtn = document.getElementsByClassName("updatebtn");
+        const closemodal = document.getElementById("closemodal");
+        const modal_form = document.getElementById("modal_form");
+        const title_modal = document.getElementById("title_modal");
+        const note_modal = document.getElementById("note_modal");
+
+
+        for(var i = 0;i < updatebtn.length; i++){
+            updatebtn[i].addEventListener("click",() => {
+                noteDivModal.classList.remove("hidden");
+                overlay.classList.remove("hidden");
+        })
+        }
+        closemodal.addEventListener("click",() => {
+            noteDivModal.classList.add("hidden");
+            overlay.classList.add("hidden");
+        })
+
+        function setid(id,title,data){
+            modal_form.action = `/notes/${id}`;
+            title_modal.value = `${title}`;
+            note_modal.value = `${data}`;
+        }
+
+    </script>
+</html>

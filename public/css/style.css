@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+
+    /* background: linear-gradient(to right, #aa4ec1 ,#a338d4,#ee18e7, #ff63fa );
+    background-clip: text;
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+nav{
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    /* height: 1.5rem; */
+}
+#main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+}
+#leftmain{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+}
+#leftmain #leftbrand{
+    font-size: 7rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #9a10bd ,#ae00ff,#ee18e7, #ff63fa );
+    background-clip: text;
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#lefttext{
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ff01ff8b;
+    padding : 1rem;
+}
+
+#login{
+    position: relative;
+    display: inline-block;
+    right: 5rem;
+    cursor: pointer;
+}
+#usera{
+    padding: 0.7rem;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.userbtn{
+    display: none;
+    position: absolute;
+    white-space: nowrap;
+    background-color: #f1f1f1;
+}
+.userbtn>:first-child{
+    margin-bottom: 1rem;
+}
+.userbtn a:hover {background-color: #ddd;}
+#login:hover .userbtn{
+    display: flex;
+    flex-direction: column;
+}
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    background-color: rgb(49, 49, 88);
+    padding: 6px;
+    font-size: 1.5rem;
+    color: white;
+}
